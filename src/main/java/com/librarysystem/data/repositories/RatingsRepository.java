@@ -1,4 +1,4 @@
-package com.librarysystem.data;
+package com.librarysystem.data.repositories;
 
 import com.librarysystem.data.models.Rating;
 import org.springframework.data.jpa.repository.Query;

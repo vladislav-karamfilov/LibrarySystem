@@ -1,4 +1,4 @@
-package com.librarysystem.data;
+package com.librarysystem.data.repositories;
 
 import com.librarysystem.data.models.Author;
 import org.springframework.data.jpa.repository.Query;
@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface AuthorsRepository extends CrudRepository<Author, Long> {
     @Query("SELECT author FROM Author author WHERE author.name = (:name)")
-    List<Author> getAuthorByName(@Param("name") String authorName);
+    List<Author> getByName(@Param("name") String authorName);
 }
