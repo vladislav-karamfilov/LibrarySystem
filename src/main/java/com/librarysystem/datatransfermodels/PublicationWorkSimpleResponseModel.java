@@ -18,19 +18,19 @@ public class PublicationWorkSimpleResponseModel {
     protected PublicationWorkType type;
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getAuthors() {
-        return authors;
+        return this.authors;
     }
 
     public Double getRating() {
-        return rating;
+        return this.rating;
     }
 
     public void setRating(Double rating) {
@@ -38,15 +38,15 @@ public class PublicationWorkSimpleResponseModel {
     }
 
     public int getIssue() {
-        return issue;
+        return this.issue;
     }
 
     public PublicationWorkGenre getGenre() {
-        return genre;
+        return this.genre;
     }
 
     public PublicationWorkType getType() {
-        return type;
+        return this.type;
     }
 
     public static PublicationWorkSimpleResponseModel fromBook(Book book) {

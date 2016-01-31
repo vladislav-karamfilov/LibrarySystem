@@ -13,6 +13,6 @@ public interface RatingsRepository extends CrudRepository<Rating, Long> {
     @Query("SELECT AVG(rating.value) FROM Rating rating WHERE rating.publicationWork.id = (:id)")
     List<Double> getAverageRatingOfPublicationWork(@Param("id") long id);
 
-    @Query("SELECT COUNT(rating.id) FROM Rating rating WHERE rating.publicationWork.id = (:id) AND rating.ip = (:ip)")
-    List<Long> getRatingsCountForPublicationWorkByIp(@Param("id") long id, @Param("ip") String ip);
+    @Query("SELECT rating.value FROM Rating rating WHERE rating.publicationWork.id = (:id) AND rating.ip = (:ip)")
+    List<Byte> getRatingForPublicationWorkByIp(@Param("id") long id, @Param("ip") String ip);
 }

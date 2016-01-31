@@ -1,0 +1,89 @@
+<article class="container">
+    <div ng-class="vm.publicationWork.type == 'BOOK' ? 'panel panel-success' : 'panel panel-info'">
+        <header class="panel-heading text-center">
+            <span>{{ vm.publicationWork.type == 'BOOK' ? 'Book' : 'Magazine' }}</span>:
+            <h1 class="panel-title">{{vm.publicationWork.title}}</h1>
+        </header>
+
+        <section class="panel-body">
+            <div class="row">
+                <div class="col-md-2">Authors:</div>
+                <div class="col-md-10"><strong>{{vm.publicationWork.authors}}</strong></div>
+                <hr/>
+            </div>
+
+            <div class="row" ng-show="vm.publicationWork.type == 'MAGAZINE'">
+                <div class="col-md-2">Issue:</div>
+                <div class="col-md-10"><strong>{{vm.publicationWork.issue}}</strong></div>
+                <hr/>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Pages:</div>
+                <div class="col-md-10"><strong>{{vm.publicationWork.pages}}</strong></div>
+                <hr/>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Publication date:</div>
+                <div class="col-md-10">
+                    <strong>{{vm.publicationWork.publicationDate | date: 'dd/MM/yyyy'}}</strong>
+                </div>
+                <hr/>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Genre:</div>
+                <div class="col-md-10"><strong>{{vm.publicationWork.genre}}</strong></div>
+                <hr/>
+            </div>
+
+            <div class="row" ng-if="vm.publicationWork.hasBeenRatedByIp">
+                <div class="col-md-2">Your rating:</div>
+                <div class="col-md-10">
+                    <strong>
+                        {{vm.publicationWork.ratingByIp}}
+                    </strong>
+                </div>
+                <hr/>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Rating:</div>
+                <div class="col-md-10">
+                    <strong>
+                        {{vm.publicationWork.rating === null ? 'N/A' : vm.publicationWork.rating + ' / 10'}}
+                    </strong>
+                </div>
+                <hr ng-show="!vm.publicationWork.hasBeenRatedByIp"/>
+            </div>
+
+            <div class="row" ng-show="!vm.publicationWork.hasBeenRatedByIp">
+                <div class="col-md-2">Rate it!</div>
+                <div class="col-md-10">
+                    <form name="ratePublicationWorkForm" class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group col-md-2">
+                                <select class="form-control" required
+                                        ng-model="newRating.value" ng-init="newRating.value='10'">
+                                    <option value="{{rating}}" ng-repeat="rating in vm.POSSIBLE_RATINGS">
+                                        {{rating}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" ng-disabled="ratePublicationWorkForm.$invalid"
+                                        ng-click="vm.ratePublicationWork(newRating.value)">
+                                    Rate
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <button type="button" class="btn btn-default pull-left" onclick="window.history.back();">Back</button>
+</article>

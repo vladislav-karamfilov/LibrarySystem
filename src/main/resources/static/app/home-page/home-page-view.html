@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Welcome to Library</h1>
+        <h2>The best to read!</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4 class="text-center">Latest books</h4>
+                </div>
+                <div class="panel-body">
+                    <div ng-if="!vm.books.length">No books...</div>
+
+                    <div publication-works="vm.books" ng-if="vm.books.length"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="text-center">Latest magazines</h4>
+                </div>
+                <div class="panel-body">
+                    <div ng-if="!vm.magazines.length">No magazines...</div>
+
+                    <div publication-works="vm.magazines" ng-if="vm.magazines.length"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

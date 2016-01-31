@@ -24,7 +24,7 @@ public class PublicationWorkModel {
     private int issue;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -32,7 +32,7 @@ public class PublicationWorkModel {
     }
 
     public String getAuthors() {
-        return authors;
+        return this.authors;
     }
 
     public void setAuthors(String authors) {
@@ -40,7 +40,7 @@ public class PublicationWorkModel {
     }
 
     public int getPages() {
-        return pages;
+        return this.pages;
     }
 
     public void setPages(int pages) {
@@ -48,7 +48,7 @@ public class PublicationWorkModel {
     }
 
     public Date getPublicationDate() {
-        return publicationDate;
+        return this.publicationDate;
     }
 
     public void setPublicationDate(Date publicationDate) {
@@ -56,7 +56,7 @@ public class PublicationWorkModel {
     }
 
     public PublicationWorkGenre getGenre() {
-        return genre;
+        return this.genre;
     }
 
     public void setGenre(PublicationWorkGenre genre) {
@@ -64,7 +64,7 @@ public class PublicationWorkModel {
     }
 
     public PublicationWorkType getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(PublicationWorkType type) {
@@ -72,7 +72,7 @@ public class PublicationWorkModel {
     }
 
     public int getIssue() {
-        return issue;
+        return this.issue;
     }
 
     public void setIssue(int issue) {
@@ -80,7 +80,7 @@ public class PublicationWorkModel {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {

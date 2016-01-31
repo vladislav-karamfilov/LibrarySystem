@@ -11,22 +11,28 @@ public class PublicationWorkDetailsResponseModel extends PublicationWorkSimpleRe
 
     private int pages;
 
-    private boolean hasBeenRatedByIp;
+    private Byte ratingByIp;
+
+    //private boolean hasBeenRatedByIp;
 
     public Date getPublicationDate() {
-        return publicationDate;
+        return this.publicationDate;
     }
 
     public int getPages() {
-        return pages;
+        return this.pages;
     }
 
-    public boolean isHasBeenRatedByIp() {
-        return hasBeenRatedByIp;
+    public Byte getRatingByIp() {
+        return this.ratingByIp;
     }
 
-    public void setHasBeenRatedByIp(boolean hasBeenRatedByIp) {
-        this.hasBeenRatedByIp = hasBeenRatedByIp;
+    public void setRatingByIp(Byte ratingByIp) {
+        this.ratingByIp = ratingByIp;
+    }
+
+    public boolean getHasBeenRatedByIp() {
+        return this.ratingByIp != null;
     }
 
     public static PublicationWorkDetailsResponseModel fromBook(Book book) {

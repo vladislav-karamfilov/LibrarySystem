@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th class="text-center">Title</th>
+        <th class="text-center">Author(s)</th>
+        <th class="text-center">Genre</th>
+        <th class="text-center">Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="publicationWork in publicationWorks">
+        <td>
+            <a ng-href="#/publicationworks/{{publicationWork.id}}">
+                {{ publicationWork.title + (publicationWork.type == 'BOOK' ? '' : ' (Issue: ' + publicationWork.issue + ')') }}
+            </a>
+        </td>
+        <td>{{ publicationWork.authors }}</td>
+        <td>{{ publicationWork.genre }}</td>
+        <td>{{ publicationWork.rating === null ? 'N/A' : publicationWork.rating + ' / 10' }}</td>
+    </tr>
+    </tbody>
+</table>

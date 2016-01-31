@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="well">
+        <form name="createPublicationWorkForm" class="form-horizontal">
+            <fieldset>
+                <legend>Create Publication Work</legend>
+
+                <div class="form-group">
+                    <label for="title" class="col-md-2 control-label">Title</label>
+                    <div class="col-md-10">
+                        <input type="text" id="title" required ng-model="newPublicationWork.title"
+                               class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="authors" class="col-md-2 control-label">Author(s)</label>
+                    <div class="col-md-10">
+                        <input type="text" id="authors" required ng-model="newPublicationWork.authors"
+                               class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pages" class="col-md-2 control-label">Pages</label>
+                    <div class="col-md-10">
+                        <input id="pages" type="number" min="1" ng-model="newPublicationWork.pages" required="required"
+                               class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="publicationDate" class="col-md-2 control-label">Departure Time</label>
+                    <div class="col-md-10">
+                        <input id="publicationDate" ng-model="newPublicationWork.publicationDate" required="required"
+                               class="form-control" type="date"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre" class="col-md-2 control-label">Genre</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="newPublicationWork.genre"
+                                ng-init="newPublicationWork.genre='SCI_FI'" required="required" id="genre">
+                            <option value="SCI_FI">Sci-Fi</option>
+                            <option value="FANTASY">Fantasy</option>
+                            <option value="POETRY">Poetry</option>
+                            <option value="THRILLER">Thriller</option>
+                            <option value="ADVENTURE">Adventure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="type" class="col-md-2 control-label">Type</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="newPublicationWork.type"
+                                ng-init="newPublicationWork.type='BOOK'" required="required" id="type">
+                            <option value="BOOK">Book</option>
+                            <option value="MAGAZINE">Magazine</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="newPublicationWork.type == 'MAGAZINE'">
+                    <label for="issue" class="col-md-2 control-label">Issue</label>
+                    <div class="col-md-10">
+                        <input id="issue" ng-model="newPublicationWork.issue" ng-required="newPublicationWork.type == 'MAGAZINE'" class="form-control"
+                               type="number" min="1"/>
+                    </div>
+                </div>
+
+                <div class="pull-right">
+                    <button ng-click="vm.createPublicationWork(newPublicationWork)"
+                            ng-disabled="createPublicationWorkForm.$invalid" class="btn btn-primary">
+                        Create
+                    </button>
+                    <a href="#/" class="btn btn-primary">Cancel</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

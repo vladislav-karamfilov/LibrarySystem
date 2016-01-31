@@ -37,13 +37,13 @@ public class BooksServiceImpl implements BooksService {
     @Override
     public Iterable<Book> getByAuthor(Author author, int page, int pageSize) {
         Pageable pageable = new PageRequest(page, pageSize, Sort.Direction.DESC, "id");
-        return this.booksRepository.getByAuthor(author, pageable);
+        return this.booksRepository.getByAuthor(author, pageable).getContent();
     }
 
     @Override
     public Iterable<Book> getByGenre(PublicationWorkGenre genre, int page, int pageSize) {
         Pageable pageable = new PageRequest(page, pageSize, Sort.Direction.DESC, "id");
-        return this.booksRepository.getByGenre(genre, pageable);
+        return this.booksRepository.getByGenre(genre, pageable).getContent();
     }
 
     @Override

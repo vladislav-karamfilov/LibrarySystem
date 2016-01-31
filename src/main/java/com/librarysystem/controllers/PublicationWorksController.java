@@ -58,7 +58,7 @@ public class PublicationWorksController {
 
         String ipAddress = this.ipAddressProvider.getRequestIpAddress(request);
 
-        publicationWork.setHasBeenRatedByIp(this.ratingsService.publicationWorkHasBeenRatedByIp(id, ipAddress));
+        publicationWork.setRatingByIp(this.ratingsService.getRatingForPublicationWorkByIp(id, ipAddress));
 
         return publicationWork;
     }
@@ -153,8 +153,9 @@ public class PublicationWorksController {
 
                 break;
             case GENRE:
-                books = this.booksService.getByGenre(PublicationWorkGenre.valueOf(value), page, DEFAULT_PAGE_SIZE);
-                magazines = this.magazinesService.getByGenre(PublicationWorkGenre.valueOf(value), page, DEFAULT_PAGE_SIZE);
+                PublicationWorkGenre genre = PublicationWorkGenre.valueOf(value);
+                books = this.booksService.getByGenre(genre, page, DEFAULT_PAGE_SIZE);
+                magazines = this.magazinesService.getByGenre(genre, page, DEFAULT_PAGE_SIZE);
                 break;
             default:
                 throw new Exception("Invalid filter type!");

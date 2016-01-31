@@ -7,5 +7,5 @@ public interface RatingsService {
 
     void save(Rating rating);
 
-    boolean publicationWorkHasBeenRatedByIp(long publicationWorkId, String ip);
+    Byte getRatingForPublicationWorkByIp(long publicationWorkId, String ip);
 }

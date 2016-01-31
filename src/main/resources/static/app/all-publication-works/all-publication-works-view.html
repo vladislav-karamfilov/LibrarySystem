@@ -1,0 +1,74 @@
+<div class="container">
+    <h2>All publication works</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="text-center">Filter publication works</h4>
+                </div>
+                <div class="panel-body">
+                    <form name="filterPublicationWorksForm" class="form-horizontal" ng-init="filter.page=0">
+                        <fieldset>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="filter-type">Filter by:</label>
+                                    <select id="filter-type" ng-model="filter.type" ng-init="filter.type='AUTHOR'"
+                                            class="form-control">
+                                        <option value="AUTHOR">Author</option>
+                                        <option value="GENRE">Genre</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-offset-1 col-md-9">
+                                <div class="form-group" ng-show="filter.type == 'GENRE'">
+                                    <label class="form-label" for="filter-value-genre">Value:</label>
+                                    <select class="form-control" ng-model="filter.value" id="filter-value-genre">
+                                        <option value="SCI_FI">Sci-Fi</option>
+                                        <option value="FANTASY">Fantasy</option>
+                                        <option value="POETRY">Poetry</option>
+                                        <option value="THRILLER">Thriller</option>
+                                        <option value="ADVENTURE">Adventure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" ng-show="filter.type == 'AUTHOR'">
+                                    <label class="form-label" for="filter-value-author">Value:</label>
+                                    <input type="text" ng-model="filter.value" id="filter-value-author"
+                                           ng-init="filter.value=''"
+                                           class="form-control" placeholder="Enter value to filter"/>
+                                </div>
+                            </div>
+
+                            <div class="pull-right">
+                                <button ng-click="vm.filterPublicationWorks(filter)" class="btn btn-primary">
+                                    Filter
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">Books</div>
+                <div class="panel-body" ng-if="vm.books && vm.books.length" publication-works="vm.books"></div>
+                <div class="panel-body" ng-if="!vm.books || !vm.books.length">No books...</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center">Magazines</div>
+                <div class="panel-body" ng-if="vm.magazines && vm.magazines.length"
+                     publication-works="vm.magazines"></div>
+                <div class="panel-body" ng-if="!vm.magazines || !vm.magazines.length">No magazines...</div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-default pull-left" onclick="window.history.back();">Back</button>
+</div>

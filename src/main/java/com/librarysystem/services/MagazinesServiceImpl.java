@@ -37,13 +37,13 @@ public class MagazinesServiceImpl implements MagazinesService {
     @Override
     public Iterable<Magazine> getByAuthor(Author author, int page, int pageSize) {
         Pageable pageable = new PageRequest(page, pageSize, Sort.Direction.DESC, "id");
-        return this.magazinesRepository.getByAuthor(author, pageable);
+        return this.magazinesRepository.getByAuthor(author, pageable).getContent();
     }
 
     @Override
     public Iterable<Magazine> getByGenre(PublicationWorkGenre genre, int page, int pageSize) {
         Pageable pageable = new PageRequest(page, pageSize, Sort.Direction.DESC, "id");
-        return this.magazinesRepository.getByGenre(genre, pageable);
+        return this.magazinesRepository.getByGenre(genre, pageable).getContent();
     }
 
     @Override

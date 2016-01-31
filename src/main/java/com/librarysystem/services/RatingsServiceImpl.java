@@ -31,10 +31,14 @@ public class RatingsServiceImpl implements RatingsService {
     }
 
     @Override
-    public boolean publicationWorkHasBeenRatedByIp(long publicationWorkId, String ip) {
-        List<Long> ratingsCountForPublicationWorkByIp =
-            this.ratingsRepository.getRatingsCountForPublicationWorkByIp(publicationWorkId, ip);
+    public Byte getRatingForPublicationWorkByIp(long publicationWorkId, String ip) {
+        List<Byte> ratingsForPublicationWorkByIp =
+            this.ratingsRepository.getRatingForPublicationWorkByIp(publicationWorkId, ip);
 
-        return !ratingsCountForPublicationWorkByIp.isEmpty() && ratingsCountForPublicationWorkByIp.get(0) > 0;
+        if (ratingsForPublicationWorkByIp.isEmpty()) {
+            return null;
+        }
+
+        return ratingsForPublicationWorkByIp.get(0);
     }
 }

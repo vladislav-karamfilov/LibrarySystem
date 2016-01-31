@@ -35,8 +35,9 @@ public class RatingsController {
         String ipAddress = this.ipAddressProvider.getRequestIpAddress(request);
 
         long publicationWorkId = rating.getPublicationWorkId();
-        boolean publicationWorkHasBeenRatedByIp =
-                this.ratingsService.publicationWorkHasBeenRatedByIp(publicationWorkId, ipAddress);
+        Byte ratingForPublicationWorkByIp =
+                this.ratingsService.getRatingForPublicationWorkByIp(publicationWorkId, ipAddress);
+        boolean publicationWorkHasBeenRatedByIp = ratingForPublicationWorkByIp != null;
 
         if (publicationWorkHasBeenRatedByIp) {
             throw new Exception("The publication work has already been rated by your IP!");

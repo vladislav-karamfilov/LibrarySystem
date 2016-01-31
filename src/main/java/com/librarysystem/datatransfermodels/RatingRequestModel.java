@@ -6,7 +6,7 @@ public class RatingRequestModel {
     private byte value;
 
     public long getPublicationWorkId() {
-        return publicationWorkId;
+        return this.publicationWorkId;
     }
 
     public void setPublicationWorkId(long publicationWorkId) {
@@ -14,7 +14,7 @@ public class RatingRequestModel {
     }
 
     public byte getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(byte value) {

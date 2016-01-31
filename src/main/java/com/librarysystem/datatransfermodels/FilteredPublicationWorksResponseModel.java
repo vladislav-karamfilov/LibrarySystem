@@ -6,7 +6,7 @@ public class FilteredPublicationWorksResponseModel {
     private Iterable<PublicationWorkSimpleResponseModel> magazines;
 
     public Iterable<PublicationWorkSimpleResponseModel> getBooks() {
-        return books;
+        return this.books;
     }
 
     public void setBooks(Iterable<PublicationWorkSimpleResponseModel> books) {
@@ -14,7 +14,7 @@ public class FilteredPublicationWorksResponseModel {
     }
 
     public Iterable<PublicationWorkSimpleResponseModel> getMagazines() {
-        return magazines;
+        return this.magazines;
     }
 
     public void setMagazines(Iterable<PublicationWorkSimpleResponseModel> magazines) {
